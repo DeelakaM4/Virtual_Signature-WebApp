@@ -1,0 +1,181 @@
+<!-- Web application for creating a virtual signature -->
+<!-- Main page -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	
+		<meta charset="UTF-8">
+		
+		<meta name="WebAppName" content="Virtual_Signature">
+		
+		<link rel="stylesheet" href="commonStyles.css">
+		<script src="commonScript.js" defer></script>
+		
+		<!-- Site font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+		
+		<!-- Signature font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
+		
+		<title>Virtual Signature</title>
+		
+		<style>
+			form
+			{
+				text-align: center;
+				padding: 40px;
+			}
+			
+			#nameLabel, #nameToConvert
+			{
+				font-size: 30px;
+				color: rgb(0, 0, 0);
+			}
+			
+			#nameToConvert
+			{
+				padding: 9px;
+				text-align: center;
+				border-style: solid;
+				border-width: 3px;
+				border-color: rgb(0, 0, 0);
+				border-radius: 4px;
+				margin: 10px 0px 0px 0px;
+				width: 50%;
+				background-color: rgb(255, 255, 255);
+			}
+			
+			#warning
+			{
+				font-size: 20px;
+				margin-bottom: 20px;
+				color: rgb(0, 0, 0);
+				font-weight: bold;
+			}
+			
+			#generate
+			{
+				font-size: 18px;
+				padding: 6px;
+				color: rgb(255, 255, 255);
+				border-style: solid;
+				border-width: 3px;
+				border-color: rgb(0, 0, 0);
+				border-radius: 4px;
+				background-color: rgb(0, 0, 0);
+			}
+			
+			#generate:hover
+			{
+				color: rgb(153, 255, 102);
+				background-color: rgb(38, 38, 38);
+			}
+			
+			#generate:active
+			{
+				color: rgb(0, 0, 0);
+				background-color: rgb(153, 255, 102);
+			}
+			
+			#signature
+			{
+				width: 50%;
+				height: 200px;
+				margin: 25px 0px 0px 0px;
+				text-align: center;
+				border-style: solid;
+				border-width: 3px;
+				border-color: rgb(0, 0, 0);
+				border-radius: 4px;
+				font-size: 70px;
+				font-style: italic;
+				font-family: 'Arizonia', cursive;
+			}
+		</style>
+		
+		<script>
+			function getSignature()
+			{
+				const usersName = document.getElementById("nameToConvert");
+				const nameLabel = document.getElementById("nameLabel");
+				const warningLabel = document.getElementById("warning");
+				const signatureField = document.getElementById("signature");
+				var usersInput = document.getElementById("nameToConvert").value;
+				
+				if (usersInput == "")
+				{
+					warningLabel.innerHTML = "name field is empty! <br> please enter your name to generate your signature";
+					warningLabel.style.color = "rgb(255, 0, 0)";
+					usersName.style.background = "rgb(179, 77, 77)";
+					nameLabel.style.color = "rgb(255, 0, 0)";
+					
+					document.getElementById("signature").value = "";
+				}
+				else
+				{
+					warningLabel.innerHTML = "thank you for using Virtual Signature! <br> feel free to use this site again";
+					warningLabel.style.color = "rgb(0, 0, 0)";
+					usersName.style.background = "rgb(255, 255, 255)";
+					nameLabel.style.color = "rgb(0, 0, 0)";
+					
+					document.getElementById("signature").value = usersInput;
+				}
+			}
+			
+			function setToDefault()
+			{
+				const warningLabel = document.getElementById("warning");
+			
+				warningLabel.innerHTML = "once your done with your name,<br> click the button below to get your signature";
+				warningLabel.style.color = "rgb(0, 0, 0)";
+			}
+		</script>
+		
+	</head>
+	<body>
+	
+		<!-- Responsive navigation bar -->
+		<nav>
+			<div id="siteTitle">Virtual Signature</div>
+			
+			<a href="#" id="dropDown">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</a>
+			
+			<div id="navBarLinks">
+				<ul>
+					<!--<li><a href="main.html">Create Your Signature</a></li>-->
+					<li><a href="about.html">About</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<form>
+			<!-- Getting the user's name -->
+			<label id="nameLabel" for="nameToConvert">Enter Your Name</label><br>
+			<input type="text" id="nameToConvert" name="nameToConvert" onfocus="setToDefault()" autofocus>
+			
+			<br>
+			
+			<!-- Message to the user -->
+			<p id="warning">once your done with your name,<br> 
+			click the button below to get your signature</p>
+			
+			<!-- Button to generate signature -->
+			<input type="button" id="generate" name="generate" value="Generate Signature" onclick="getSignature()">
+			
+			<br>
+			
+			<!-- Output signature -->
+			<input type="text" id="signature" value="" placeholder="Signature" readonly>
+		</form>
+		
+	</body>
+</html>
