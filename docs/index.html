@@ -109,16 +109,16 @@
 				
 				if (usersInput == "")
 				{
-					warningLabel.innerHTML = "name field is empty! <br> please enter your name to generate your signature";
+					warningLabel.innerHTML = "Name field is empty! <br> Please enter your name to generate your signature";
 					warningLabel.style.color = "rgb(255, 0, 0)";
 					usersName.style.background = "rgb(179, 77, 77)";
 					nameLabel.style.color = "rgb(255, 0, 0)";
 					
-					document.getElementById("signature").value = "";
+					document.getElementById("signature").value = null;
 				}
 				else
 				{
-					warningLabel.innerHTML = "thank you for using Virtual Signature! <br> feel free to use this site again";
+					warningLabel.innerHTML = "Thank you for using Virtual Signature! <br> Feel free to use this site again";
 					warningLabel.style.color = "rgb(0, 0, 0)";
 					usersName.style.background = "rgb(255, 255, 255)";
 					nameLabel.style.color = "rgb(0, 0, 0)";
@@ -131,7 +131,7 @@
 			{
 				const warningLabel = document.getElementById("warning");
 			
-				warningLabel.innerHTML = "once you're done with your name,<br> click the button below to get your signature";
+				warningLabel.innerHTML = "Once you're done with your name,<br> click the button below to get your signature";
 				warningLabel.style.color = "rgb(0, 0, 0)";
 			}
 		</script>
@@ -165,7 +165,7 @@
 			<br>
 			
 			<!-- Message to the user -->
-			<p id="warning">once you're done with your name,<br> 
+			<p id="warning">Once you're done with your name,<br> 
 			click the button below to get your signature</p>
 			
 			<!-- Button to generate signature -->
@@ -174,7 +174,7 @@
 			<br>
 			
 			<!-- Output signature -->
-			<input type="text" id="signature" value="" placeholder="Signature" readonly>
+			<input type="text" id="signature" value=null placeholder="Signature" readonly>
 		</form>
 		
 	</body>
