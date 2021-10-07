@@ -9,7 +9,7 @@ Currently studying software engineering at the informatics institute of technolo
 which is affiliated with the university of westminister.
 
 Site link:
-https://deelakam4.github.io/Virtual_Signature-WebApp/
+https://tharindmahale.github.io/Virtual_Signature-WebApp/
 
 About this site:
 This site was created to turn the user's name to signature when in need of a signature
